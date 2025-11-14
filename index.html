@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>TraQQr - HR & Compliance Tracking</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -86,6 +87,7 @@
             color: white;
             backdrop-filter: blur(10px);
             text-decoration: none;
+            cursor: pointer;
         }
 
         .contact-item.address:hover {
@@ -119,6 +121,13 @@
         .contact-item span {
             font-size: 1.1em;
             font-weight: 500;
+            color: white;
+            text-decoration: none;
+        }
+
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
         }
 
         .cta-buttons {
@@ -168,6 +177,27 @@
             box-shadow: 0 6px 20px rgba(13, 81, 77, 0.5);
         }
 
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: linear-gradient(135deg, #0db14b 0%, #0a9940 100%);
+            color: white;
+            padding: 16px 32px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            font-weight: 500;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 40px 20px;
@@ -201,19 +231,19 @@
         <div class="subtitle">HR & COMPLIANCE TRACKING</div>
 
         <div class="contact-section">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Loosterweg+4b+2215TL+Voorhout" target="_blank" class="contact-item address">
+            <div class="contact-item address" onclick="copyToClipboard('Loosterweg 4b, 2215 TL Voorhout')">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
                 </svg>
                 <span>Loosterweg&nbsp;4b, 2215&nbsp;TL Voorhout</span>
-            </a>
+            </div>
 
-            <a href="tel:+31713020160" class="contact-item phone">
+            <div class="contact-item phone" onclick="copyToClipboard('+31 71 30 20 160')">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
                 </svg>
                 <span>+31 71 30 20 160</span>
-            </a>
+            </div>
         </div>
 
         <div class="cta-buttons">
@@ -230,8 +260,27 @@
                 Direct bellen
             </a>
         </div>
-
-
     </div>
+
+    <div id="toast" class="toast">Gekopieerd naar klembord</div>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                showToast();
+            }).catch(function(err) {
+                console.error('Failed to copy text: ', err);
+            });
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+
+            setTimeout(function() {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+    </script>
 </body>
 </html>
