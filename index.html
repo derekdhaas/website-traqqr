@@ -8,8 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -27,15 +25,102 @@
             padding: 20px;
             margin: 0;
             overflow: hidden;
+            position: relative;
         }
 
-        #vanta-bg {
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: linear-gradient(135deg, #0a1a18 0%, #0d514d 25%, #083936 50%, #0a1a18 75%, #0d514d 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
             z-index: 0;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(13, 177, 75, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 15s ease-in-out infinite;
+            z-index: 0;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 0.5;
+            }
+        }
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .orb-1 {
+            width: 500px;
+            height: 500px;
+            background: rgba(13, 177, 75, 0.2);
+            top: -150px;
+            left: -150px;
+            animation: float1 25s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 600px;
+            height: 600px;
+            background: rgba(13, 81, 77, 0.15);
+            bottom: -200px;
+            right: -200px;
+            animation: float2 30s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: rgba(13, 177, 75, 0.1);
+            top: 50%;
+            right: -100px;
+            animation: float3 20s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(100px, 150px) scale(1.1); }
+            66% { transform: translate(-50px, 100px) scale(0.9); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(-150px, -100px) scale(1.15); }
+            66% { transform: translate(-80px, 50px) scale(0.95); }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-100px, -150px) rotate(180deg); }
         }
 
         .container {
@@ -246,7 +331,9 @@
     </style>
 </head>
 <body>
-    <div id="vanta-bg"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
     <div class="container">
         <div class="header-section">
             <div class="logo-container">
@@ -292,23 +379,6 @@
     <div id="toast" class="toast">Gekopieerd naar klembord</div>
 
     <script>
-        // Initialize Vanta Waves
-        VANTA.WAVES({
-            el: "#vanta-bg",
-            mouseControls: true,
-            touchControls: true,
-            gyroControls: true,
-            minHeight: 200.00,
-            minWidth: 200.00,
-            scale: 1.00,
-            scaleMobile: 1.00,
-            color: 0x0a1a18,
-            shininess: 30.00,
-            waveHeight: 15.00,
-            waveSpeed: 0.75,
-            zoom: 0.85
-        });
-
         // Clipboard functionality
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(function() {
