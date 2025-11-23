@@ -46,6 +46,14 @@
             position: relative;
         }
 
+        .header-section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 40px;
+        }
+
         .logo-container {
             position: relative;
             z-index: 1;
@@ -74,7 +82,7 @@
         .subtitle {
             font-size: 1.3em;
             color: #FFFFFF;
-            margin-bottom: 50px;
+            margin-bottom: 0;
             font-weight: 300;
             letter-spacing: 2px;
             position: relative;
@@ -215,6 +223,10 @@
                 padding: 40px 20px;
             }
 
+            .header-section {
+                padding: 30px 20px;
+            }
+
             .logo-container img {
                 max-width: 250px !important;
             }
@@ -236,12 +248,14 @@
 <body>
     <div id="vanta-bg"></div>
     <div class="container">
-        <div class="logo-container">
-            <img src="logo.svg" alt="TraQQr" style="width: 100%; max-width: 360px; height: auto;">
-        </div>
+        <div class="header-section">
+            <div class="logo-container">
+                <img src="logo.svg" alt="TraQQr" style="width: 100%; max-width: 360px; height: auto;">
+            </div>
 
-        <h1><span style="color: #ffffff;">Tra</span><span style="color: #0db14b;">QQ</span><span style="color: #ffffff;">r</span></h1>
-        <div class="subtitle">HR & COMPLIANCE TRACKING</div>
+            <h1><span style="color: #ffffff;">Tra</span><span style="color: #0db14b;">QQ</span><span style="color: #ffffff;">r</span></h1>
+            <div class="subtitle">HR & COMPLIANCE TRACKING</div>
+        </div>
 
         <div class="contact-section">
             <div class="contact-item address" onclick="copyToClipboard('Loosterweg 4b, 2215 TL Voorhout')">
