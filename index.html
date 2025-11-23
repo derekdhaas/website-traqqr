@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -24,6 +26,16 @@
             align-items: center;
             padding: 20px;
             margin: 0;
+            overflow: hidden;
+        }
+
+        #vanta-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
         }
 
         .container {
@@ -222,6 +234,7 @@
     </style>
 </head>
 <body>
+    <div id="vanta-bg"></div>
     <div class="container">
         <div class="logo-container">
             <img src="logo.svg" alt="TraQQr" style="width: 100%; max-width: 360px; height: auto;">
@@ -265,6 +278,101 @@
     <div id="toast" class="toast">Gekopieerd naar klembord</div>
 
     <script>
+        let vantaEffect;
+        let gyroX = 0;
+        let gyroY = 0;
+        let mouseX = 0;
+        let mouseY = 0;
+        let useGyro = false;
+
+        // Initialize Vanta Waves with brand colors
+        document.addEventListener('DOMContentLoaded', function() {
+            vantaEffect = VANTA.WAVES({
+                el: "#vanta-bg",
+                mouseControls: true,
+                touchControls: true,
+                gyroControls: false,
+                minHeight: 200.00,
+                minWidth: 200.00,
+                scale: 1.00,
+                scaleMobile: 1.00,
+                color: 0x0a1a18,
+                shininess: 30.00,
+                waveHeight: 15.00,
+                waveSpeed: 0.75,
+                zoom: 0.85
+            });
+
+            // Enhanced mouse tracking
+            document.addEventListener('mousemove', function(e) {
+                if (!useGyro && vantaEffect) {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                }
+            });
+
+            // Enhanced touch tracking
+            document.addEventListener('touchmove', function(e) {
+                if (!useGyro && vantaEffect && e.touches.length > 0) {
+                    mouseX = e.touches[0].clientX;
+                    mouseY = e.touches[0].clientY;
+                }
+            }, { passive: true });
+
+            // Gyroscope support for device orientation
+            if (window.DeviceOrientationEvent) {
+                // Check if we need permission (iOS 13+)
+                if (typeof DeviceOrientationEvent.requestPermission === 'function') {
+                    // For iOS 13+ devices, we'll request permission on first user interaction
+                    document.addEventListener('click', requestGyroPermission, { once: true });
+                    document.addEventListener('touchstart', requestGyroPermission, { once: true });
+                } else {
+                    // For other devices, start listening immediately
+                    startGyroscope();
+                }
+            }
+        });
+
+        function requestGyroPermission() {
+            DeviceOrientationEvent.requestPermission()
+                .then(permissionState => {
+                    if (permissionState === 'granted') {
+                        startGyroscope();
+                    }
+                })
+                .catch(console.error);
+        }
+
+        function startGyroscope() {
+            window.addEventListener('deviceorientation', function(e) {
+                if (e.beta !== null && e.gamma !== null) {
+                    useGyro = true;
+
+                    // Convert device orientation to screen coordinates
+                    // beta: front-to-back tilt (-180 to 180)
+                    // gamma: left-to-right tilt (-90 to 90)
+
+                    // Normalize beta (-90 to 90 range for portrait)
+                    let beta = Math.max(-90, Math.min(90, e.beta));
+                    // Normalize gamma
+                    let gamma = Math.max(-90, Math.min(90, e.gamma));
+
+                    // Map to screen coordinates
+                    gyroX = (gamma + 90) * (window.innerWidth / 180);
+                    gyroY = (beta + 90) * (window.innerHeight / 180);
+
+                    // Update Vanta effect with gyro position
+                    if (vantaEffect && vantaEffect.uniforms) {
+                        vantaEffect.setOptions({
+                            mouseX: gyroX,
+                            mouseY: gyroY
+                        });
+                    }
+                }
+            }, true);
+        }
+
+        // Clipboard functionality
         function copyToClipboard(text) {
             navigator.clipboard.writeText(text).then(function() {
                 showToast();
@@ -281,6 +389,13 @@
                 toast.classList.remove('show');
             }, 2000);
         }
+
+        // Cleanup on page unload
+        window.addEventListener('beforeunload', function() {
+            if (vantaEffect) {
+                vantaEffect.destroy();
+            }
+        });
     </script>
 </body>
 </html>
