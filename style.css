@@ -1754,6 +1754,67 @@ ul { list-style: none; }
     margin: 0 auto;
 }
 
+/* Scenario callout */
+.about-scenario {
+    background: var(--color-bg-card);
+    border: 1px solid rgba(13, 177, 75, 0.2);
+    border-radius: var(--radius);
+    padding: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-scenario__icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(13, 177, 75, 0.12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--color-accent);
+}
+
+.about-scenario__icon svg { width: 22px; height: 22px; }
+
+.about-scenario__text {
+    font-size: 1.05rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    font-style: italic;
+}
+
+/* Audit CTA block */
+.about-audit {
+    background: linear-gradient(135deg, rgba(13, 177, 75, 0.08), rgba(13, 81, 77, 0.08));
+    border: 1px solid rgba(13, 177, 75, 0.15);
+    border-radius: var(--radius);
+    padding: 40px;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.about-audit .section__label { margin-bottom: 8px; }
+
+.about-audit h2 {
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    font-weight: 600;
+    color: white;
+    margin-bottom: 16px;
+}
+
+.about-audit p {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+}
+
 .location-card__icon {
     width: 48px;
     height: 48px;
