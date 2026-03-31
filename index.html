@@ -3,284 +3,701 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="format-detection" content="telephone=no">
-    <title>TraQQr - HR & Compliance Tracking</title>
+    <title data-nl="TraQQr — Certificeringsbeheer dat echt werkt" data-en="TraQQr — Certification Management That Actually Works">TraQQr — Certificeringsbeheer dat echt werkt</title>
+    <meta name="description" content="All-in-one platform for certification lifecycle management, competency-based paths, assessments & reviews, and qualification-based crew planning. Trusted by Seafox and INEOS.">
+    <meta name="keywords" content="certification management, competency management, crew planning, compliance tracking, OPITO, VCA, BOSIET, offshore certification">
+    <link rel="icon" type="image/svg+xml" href="logo.svg">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="TraQQr — Certification Management That Actually Works">
+    <meta property="og:description" content="All-in-one platform for certification lifecycle management, competency paths, assessments, and qualification-based crew planning.">
+    <meta property="og:site_name" content="TraQQr">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "TraQQr",
+        "applicationCategory": "BusinessApplication",
+        "description": "All-in-one platform for certification lifecycle management, competency-based paths, assessments & reviews, and qualification-based crew planning.",
+        "operatingSystem": "Web",
+        "publisher": {
+            "@type": "Organization",
+            "name": "TraQQr",
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": "Loosterweg 4b",
+                "addressLocality": "Voorhout",
+                "postalCode": "2215 TL",
+                "addressCountry": "NL"
+            },
+            "telephone": "+31713020160"
         }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: #0a1a18;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            margin: 0;
-        }
-
-        .container {
-            padding: 60px 40px;
-            max-width: 600px;
-            width: 100%;
-            text-align: center;
-            position: relative;
-        }
-
-        .logo-container {
-            position: relative;
-            z-index: 1;
-        }
-
-        .logo-building {
-            width: 200px;
-            height: auto;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
-        }
-
-        h1 {
-            font-size: 5em;
-            margin-bottom: 10px;
-            color: white;
-            position: relative;
-            z-index: 1;
-            font-weight: 400;
-        }
-
-        .highlight {
-            color: #0db14b;
-        }
-
-        .subtitle {
-            font-size: 1.3em;
-            color: #FFFFFF;
-            margin-bottom: 50px;
-            font-weight: 300;
-            letter-spacing: 2px;
-            position: relative;
-            z-index: 1;
-        }
-
-        .contact-section {
-            position: relative;
-            z-index: 1;
-            margin-top: 40px;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 20px 0;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            color: white;
-            backdrop-filter: blur(10px);
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        .contact-item.address:hover {
-            background: linear-gradient(135deg, #0db14b 0%, #0a9940 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(13, 177, 75, 0.4);
-        }
-
-        .contact-item.phone:hover {
-            background: linear-gradient(135deg, #0d514d 0%, #083936 100%);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(13, 81, 77, 0.5);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-3px);
-        }
-
-        .contact-item svg {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-            fill: #0db14b;
-            transition: fill 0.3s ease;
-        }
-
-        .contact-item:hover svg {
-            fill: white;
-        }
-
-        .contact-item span {
-            font-size: 1.1em;
-            font-weight: 500;
-            color: white;
-            text-decoration: none;
-        }
-
-        .contact-item a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 15px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            flex: 1;
-            min-width: 200px;
-            padding: 18px 30px;
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1em;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #0db14b 0%, #0a9940 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(13, 177, 75, 0.4);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(13, 177, 75, 0.5);
-        }
-
-        .btn-secondary {
-            background: linear-gradient(135deg, #0d514d 0%, #083936 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(13, 81, 77, 0.4);
-        }
-
-        .btn-secondary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(13, 81, 77, 0.5);
-        }
-
-        .toast {
-            position: fixed;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: linear-gradient(135deg, #0db14b 0%, #0a9940 100%);
-            color: white;
-            padding: 16px 32px;
-            border-radius: 8px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            font-weight: 500;
-            opacity: 0;
-            transition: all 0.3s ease;
-            z-index: 1000;
-        }
-
-        .toast.show {
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 40px 20px;
-            }
-
-            .logo-container img {
-                max-width: 250px !important;
-            }
-
-            h1 {
-                font-size: 3em;
-            }
-
-            .subtitle {
-                font-size: 1em;
-            }
-
-            .btn {
-                min-width: 100%;
-            }
-        }
-    </style>
+    }
+    </script>
 </head>
 <body>
-    <div class="container">
-        <div class="logo-container">
-            <img src="logo.svg" alt="TraQQr" style="width: 100%; max-width: 360px; height: auto;">
-        </div>
 
-        <h1><span style="color: #ffffff;">Tra</span><span style="color: #0db14b;">QQ</span><span style="color: #ffffff;">r</span></h1>
-        <div class="subtitle">HR & COMPLIANCE TRACKING</div>
-
-        <div class="contact-section">
-            <div class="contact-item address" onclick="copyToClipboard('Loosterweg 4b, 2215 TL Voorhout')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                <span>Loosterweg&nbsp;4b, 2215&nbsp;TL Voorhout</span>
-            </div>
-
-            <div class="contact-item phone" onclick="copyToClipboard('+31 252 799 360')">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
-                <span>+31 252 799 360</span>
-            </div>
-        </div>
-
-        <div class="cta-buttons">
-            <a href="https://www.google.com/maps/dir/?api=1&destination=Loosterweg+4b+2215TL+Voorhout" target="_blank" class="btn btn-primary">
-                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                </svg>
-                Route berekenen
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav__inner">
+            <a href="/" class="nav__logo">
+                <img src="logo.svg" alt="TraQQr" class="nav__logo-img">
+                <span class="nav__logo-text">Tra<span class="accent">QQ</span>r</span>
             </a>
-            <a href="tel:0031252799360" class="btn btn-secondary">
-                <svg width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white">
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
-                </svg>
-                Direct bellen
-            </a>
+            <div class="nav__links">
+                <a href="features.html" data-nl="Functionaliteiten" data-en="Features">Functionaliteiten</a>
+                <a href="industries.html" data-nl="Sectoren" data-en="Industries">Sectoren</a>
+                <a href="about.html" data-nl="Over ons" data-en="About">Over ons</a>
+                <a href="contact.html" data-nl="Contact" data-en="Contact">Contact</a>
+                <button class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+                <a href="contact.html" class="btn btn--primary btn--sm" data-nl="Plan een demo" data-en="Book a Demo">Plan een demo</a>
+            </div>
+            <button class="nav__menu" id="navMenu" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu__links">
+            <a href="features.html" data-nl="Functionaliteiten" data-en="Features">Functionaliteiten</a>
+            <a href="industries.html" data-nl="Sectoren" data-en="Industries">Sectoren</a>
+            <a href="about.html" data-nl="Over ons" data-en="About">Over ons</a>
+            <a href="contact.html" data-nl="Contact" data-en="Contact">Contact</a>
+            <button class="lang-toggle" id="langToggleMobile" aria-label="Switch language">EN</button>
+            <a href="contact.html" class="btn btn--primary" data-nl="Plan een demo" data-en="Book a Demo">Plan een demo</a>
         </div>
     </div>
 
-    <div id="toast" class="toast">Gekopieerd naar klembord</div>
+    <!-- Hero -->
+    <section class="hero" id="hero">
+        <div class="hero__glow"></div>
+        <div class="hero__glow hero__glow--secondary"></div>
+        <div class="hero__content">
+            <div class="hero__badge reveal">
+                <span class="hero__badge-dot"></span>
+                <span data-nl="Vertrouwd door Seafox &amp; INEOS" data-en="Trusted by Seafox &amp; INEOS">Vertrouwd door Seafox &amp; INEOS</span>
+            </div>
+            <h1 class="hero__title reveal">
+                <span data-nl="Elke certificering." data-en="Every certification.">Elke certificering.</span><br>
+                <span data-nl="Elke medewerker." data-en="Every person.">Elke medewerker.</span><br>
+                <span class="hero__title--accent" data-nl="Altijd compliant." data-en="Always compliant.">Altijd compliant.</span>
+            </h1>
+            <p class="hero__subtitle reveal" data-nl="Certificeringslevenscyclusbeheer, competentiegebaseerde paden, assessments &amp; reviews, en kwalificatiegebaseerde personeelsplanning — alles in één platform." data-en="Certification lifecycle management, competency-based paths, assessments &amp; reviews, and qualification-based crew planning — all in one platform.">Certificeringslevenscyclusbeheer, competentiegebaseerde paden, assessments &amp; reviews, en kwalificatiegebaseerde personeelsplanning — alles in één platform.</p>
+            <div class="hero__cta reveal">
+                <a href="contact.html" class="btn btn--primary btn--lg" data-nl="Plan een demo" data-en="Book a Demo">
+                    Plan een demo
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn__icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </a>
+                <a href="features.html" class="btn btn--secondary btn--lg" data-nl="Bekijk hoe het werkt" data-en="See How It Works">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn__icon"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                    Bekijk hoe het werkt
+                </a>
+            </div>
+        </div>
 
-    <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text).then(function() {
-                showToast();
-            }).catch(function(err) {
-                console.error('Failed to copy text: ', err);
-            });
-        }
+        <!-- Dashboard mockup — based on real TraQQr UI -->
+        <div class="dashboard reveal">
+            <div class="dashboard__inner">
+                <div class="dashboard__topbar">
+                    <div class="dashboard__dots">
+                        <span class="dot dot--red"></span>
+                        <span class="dot dot--yellow"></span>
+                        <span class="dot dot--green"></span>
+                    </div>
+                    <span class="dashboard__title">TraQQr</span>
+                </div>
 
-        function showToast() {
-            const toast = document.getElementById('toast');
-            toast.classList.add('show');
+                <!-- Tile-based home screen (Me / Do / Manage) -->
+                <div class="dashboard__tiles">
+                    <div class="dashboard__tile-section">
+                        <span class="dashboard__tile-label">Me</span>
+                        <div class="dashboard__tile-row">
+                            <div class="tile tile--blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Me</span></div>
+                            <div class="tile tile--teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/></svg><span>Calendar</span></div>
+                            <div class="tile tile--green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>Messaging</span></div>
+                            <div class="tile tile--orange"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg><span>Career</span></div>
+                        </div>
+                    </div>
+                    <div class="dashboard__tile-section">
+                        <span class="dashboard__tile-label">Do</span>
+                        <div class="dashboard__tile-row">
+                            <div class="tile tile--red"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/></svg><span>Training</span></div>
+                            <div class="tile tile--yellow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg><span>Assessment</span></div>
+                            <div class="tile tile--purple"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></svg><span>Objectives</span></div>
+                            <div class="tile tile--pink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg><span>Planner</span></div>
+                        </div>
+                    </div>
+                    <div class="dashboard__tile-section">
+                        <span class="dashboard__tile-label">Manage</span>
+                        <div class="dashboard__tile-row">
+                            <div class="tile tile--green2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg><span>HR</span></div>
+                            <div class="tile tile--cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/></svg><span>Planning</span></div>
+                            <div class="tile tile--orange2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21H3"/><path d="M3 7v14"/><rect x="7" y="10" width="4" height="11"/><rect x="13" y="6" width="4" height="15"/></svg><span>Reports</span></div>
+                            <div class="tile tile--red2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg><span>Require.</span></div>
+                        </div>
+                    </div>
+                </div>
 
-            setTimeout(function() {
-                toast.classList.remove('show');
-            }, 2000);
-        }
-    </script>
+                <!-- Personnel compliance matrix preview -->
+                <div class="dashboard__matrix">
+                    <div class="dashboard__matrix-header">
+                        <span class="dashboard__matrix-title">Personnel Matrix</span>
+                        <div class="dashboard__matrix-legend">
+                            <span class="legend legend--valid">Valid</span>
+                            <span class="legend legend--missing">Missing</span>
+                            <span class="legend legend--invalid">Invalid</span>
+                        </div>
+                    </div>
+                    <table class="dashboard__table">
+                        <thead>
+                            <tr>
+                                <th>Personnel</th>
+                                <th class="hide-mobile">Function</th>
+                                <th class="matrix-col">KPI</th>
+                                <th class="matrix-col hide-mobile">BOSIET</th>
+                                <th class="matrix-col hide-mobile">VCA</th>
+                                <th class="matrix-col">HUET</th>
+                                <th class="matrix-col">STCW</th>
+                                <th class="matrix-col hide-mobile">H2S</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="dashboard__cert-name">J. van der Berg</td>
+                                <td class="hide-mobile">Chief Engineer</td>
+                                <td><span class="kpi-score">100%</span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="dashboard__cert-name">M. de Vries</td>
+                                <td class="hide-mobile">2nd Engineer</td>
+                                <td><span class="kpi-score kpi-score--warning">83%</span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--invalid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--missing"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="dashboard__cert-name">A. Bakker</td>
+                                <td class="hide-mobile">Deckhand</td>
+                                <td><span class="kpi-score">100%</span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="dashboard__cert-name">R. Jansen</td>
+                                <td class="hide-mobile">Crane Operator</td>
+                                <td><span class="kpi-score kpi-score--danger">50%</span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--invalid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--missing"></span></td>
+                                <td><span class="matrix-cell matrix-cell--invalid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                            </tr>
+                            <tr>
+                                <td class="dashboard__cert-name">S. Visser</td>
+                                <td class="hide-mobile">Steward</td>
+                                <td><span class="kpi-score kpi-score--warning">67%</span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--valid"></span></td>
+                                <td><span class="matrix-cell matrix-cell--missing"></span></td>
+                                <td class="hide-mobile"><span class="matrix-cell matrix-cell--invalid"></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social proof -->
+    <section class="social-proof">
+        <div class="container">
+            <p class="social-proof__label reveal" data-nl="Vertrouwd door offshore- &amp; petrochemische leiders" data-en="Trusted by offshore &amp; petrochemical leaders">Vertrouwd door offshore- &amp; petrochemische leiders</p>
+            <div class="social-proof__logos reveal">
+                <div class="social-proof__logo">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7 3.5v7.64l-7 3.5-7-3.5V7.68l7-3.5z"/></svg>
+                    <span>Seafox</span>
+                </div>
+                <div class="social-proof__logo">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 6v6l4.5 2.7.75-1.23L13 11.2V6h-2z"/></svg>
+                    <span>INEOS</span>
+                </div>
+            </div>
+            <div class="social-proof__metrics reveal">
+                <div class="metric">
+                    <span class="metric__value" data-count="10000">0</span><span class="metric__suffix">+</span>
+                    <span class="metric__label" data-nl="Certificeringen bijgehouden" data-en="Certifications Tracked">Certificeringen bijgehouden</span>
+                </div>
+                <div class="metric">
+                    <span class="metric__value">99.1</span><span class="metric__suffix">%</span>
+                    <span class="metric__label" data-nl="Nalevingspercentage" data-en="Compliance Rate">Nalevingspercentage</span>
+                </div>
+                <div class="metric">
+                    <span class="metric__value" data-count="4">0</span>
+                    <span class="metric__label" data-nl="Industriesectoren" data-en="Industry Sectors">Industriesectoren</span>
+                </div>
+                <div class="metric">
+                    <span class="metric__value">0</span>
+                    <span class="metric__label" data-nl="Gemiste vervaldatums" data-en="Missed Expiry Dates">Gemiste vervaldatums</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Four Pillars -->
+    <section class="section pillars" id="pillars">
+        <div class="container">
+            <span class="section__label reveal" data-nl="Het Platform" data-en="The Platform">Het Platform</span>
+            <h2 class="section__title reveal" data-nl="Vier pijlers. Eén platform. Geen hiaten." data-en="Four pillars. One platform. Zero gaps.">Vier pijlers. Eén platform. Geen hiaten.</h2>
+            <p class="section__description reveal" data-nl="Geen enkele andere oplossing combineert certificeringsbeheer, competentietracking, assessments en personeelsplanning in één geïntegreerd platform." data-en="No other solution combines certification management, competency tracking, assessments, and crew planning in a single, integrated platform.">Geen enkele andere oplossing combineert certificeringsbeheer, competentietracking, assessments en personeelsplanning in één geïntegreerd platform.</p>
+            <div class="pillars__grid">
+                <a href="features.html#certifications" class="pillar-card reveal">
+                    <div class="pillar-card__icon pillar-card__icon--green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="m9 12 2 2 4-4"/></svg>
+                    </div>
+                    <h3 data-nl="Certificeringslevenscyclusbeheer" data-en="Certification Lifecycle Management">Certificeringslevenscyclusbeheer</h3>
+                    <p data-nl="Volg elke certificering van uw personeel. Automatische vervaldatummeldingen, verlengingsworkflows en audit-ready rapporten — mis nooit meer een deadline." data-en="Track every certification across your workforce. Automatic expiry alerts, renewal workflows, and audit-ready reports — never miss a deadline again.">Volg elke certificering van uw personeel. Automatische vervaldatummeldingen, verlengingsworkflows en audit-ready rapporten — mis nooit meer een deadline.</p>
+                    <ul class="pillar-card__features">
+                        <li data-nl="Automatische 30/60/90 dagen vervaldatumwaarschuwingen" data-en="Automatic 30/60/90 day expiry warnings">Automatische 30/60/90 dagen vervaldatumwaarschuwingen</li>
+                        <li data-nl="Geautomatiseerde verlengingsworkflows" data-en="Renewal workflow automation">Geautomatiseerde verlengingsworkflows</li>
+                        <li data-nl="Compliance-dashboards &amp; auditrapporten" data-en="Compliance dashboards &amp; audit reports">Compliance-dashboards &amp; auditrapporten</li>
+                        <li data-nl="OPITO, STCW, VCA, IWCF, GWO ondersteuning" data-en="OPITO, STCW, VCA, IWCF, GWO support">OPITO, STCW, VCA, IWCF, GWO ondersteuning</li>
+                    </ul>
+                </a>
+                <a href="features.html#competencies" class="pillar-card reveal">
+                    <div class="pillar-card__icon pillar-card__icon--emerald">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M6 21V9a9 9 0 0 0 9 9"/></svg>
+                    </div>
+                    <h3 data-nl="Competentiegebaseerde certificeringspaden" data-en="Competency-Based Certification Paths">Competentiegebaseerde certificeringspaden</h3>
+                    <p data-nl="Breng de weg van competentie naar certificering in kaart. Visuele paden tonen precies wat elke medewerker nodig heeft voor kwalificatie." data-en="Map the journey from competency to certification. Visual paths show exactly what each employee needs to achieve qualification.">Breng de weg van competentie naar certificering in kaart. Visuele paden tonen precies wat elke medewerker nodig heeft voor kwalificatie.</p>
+                    <ul class="pillar-card__features">
+                        <li data-nl="Visuele competentieframeworks" data-en="Visual competency frameworks">Visuele competentieframeworks</li>
+                        <li data-nl="Gap-analyse per medewerker" data-en="Gap analysis per employee">Gap-analyse per medewerker</li>
+                        <li data-nl="Voorwaarden &amp; equivalenties" data-en="Prerequisites &amp; equivalencies">Voorwaarden &amp; equivalenties</li>
+                        <li data-nl="Automatische certificering bij voltooiing" data-en="Auto-certification on completion">Automatische certificering bij voltooiing</li>
+                    </ul>
+                </a>
+                <a href="features.html#assessments" class="pillar-card reveal">
+                    <div class="pillar-card__icon pillar-card__icon--sky">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+                    </div>
+                    <h3 data-nl="Assessments &amp; Reviews" data-en="Assessments &amp; Reviews">Assessments &amp; Reviews</h3>
+                    <p data-nl="Ingebouwde assessment-engine met meerdere beoordelingsmethoden. Resultaten voeden direct de competentie- en certificeringsstatus." data-en="Built-in assessment engine with multiple evaluation methods. Results directly feed competency and certification status.">Ingebouwde assessment-engine met meerdere beoordelingsmethoden. Resultaten voeden direct de competentie- en certificeringsstatus.</p>
+                    <ul class="pillar-card__features">
+                        <li data-nl="Kennistoetsen &amp; observaties" data-en="Knowledge tests &amp; observations">Kennistoetsen &amp; observaties</li>
+                        <li data-nl="360° peer- &amp; leidinggevendenbeoordelingen" data-en="360° peer &amp; supervisor reviews">360° peer- &amp; leidinggevendenbeoordelingen</li>
+                        <li data-nl="Validatie op de werkvloer" data-en="On-the-job validation">Validatie op de werkvloer</li>
+                        <li data-nl="Directe competentiestatusupdates" data-en="Direct competency status updates">Directe competentiestatusupdates</li>
+                    </ul>
+                </a>
+                <a href="features.html#planning" class="pillar-card reveal">
+                    <div class="pillar-card__icon pillar-card__icon--violet">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="M8 14h.01"/><path d="M12 14h.01"/><path d="M16 14h.01"/><path d="M8 18h.01"/><path d="M12 18h.01"/></svg>
+                    </div>
+                    <h3 data-nl="Kwalificatiegebaseerde personeelsplanning" data-en="Qualification-Based Crew Planning">Kwalificatiegebaseerde personeelsplanning</h3>
+                    <p data-nl="Plan met vertrouwen. Als iemand om 5 uur 's ochtends ziek belt, vindt u direct een gekwalificeerde vervanger met de juiste certificeringen." data-en="Schedule with confidence. When someone calls in sick at 5 AM, instantly find a qualified replacement with the right certifications.">Plan met vertrouwen. Als iemand om 5 uur 's ochtends ziek belt, vindt u direct een gekwalificeerde vervanger met de juiste certificeringen.</p>
+                    <ul class="pillar-card__features">
+                        <li data-nl="Kwalificatie-gematchte vervangers" data-en="Qualification-matched replacements">Kwalificatie-gematchte vervangers</li>
+                        <li data-nl="Realtime beschikbaarheidsoverzicht" data-en="Real-time availability overview">Realtime beschikbaarheidsoverzicht</li>
+                        <li data-nl="Compliance-gecontroleerde planning" data-en="Compliance-checked scheduling">Compliance-gecontroleerde planning</li>
+                        <li data-nl="Crewrotatieplanning" data-en="Crew rotation planning">Crewrotatieplanning</li>
+                    </ul>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Closed Loop -->
+    <section class="section closed-loop">
+        <div class="container">
+            <span class="section__label reveal" data-nl="De gesloten kringloop" data-en="The Closed Loop">De gesloten kringloop</span>
+            <h2 class="section__title reveal" data-nl="Van vervaldatum tot compliance. Automatisch." data-en="From expiry to compliance. Automatically.">Van vervaldatum tot compliance. Automatisch.</h2>
+            <p class="section__description reveal" data-nl="Het unieke gesloten-kringloopsysteem van TraQQr verbindt certificeringsvervaldatumdetectie met herbeoordeling, verlenging en roosterupdates — zonder handmatige tussenkomst." data-en="TraQQr's unique closed-loop system connects certification expiry detection to reassessment, renewal, and schedule updates — without manual intervention.">Het unieke gesloten-kringloopsysteem van TraQQr verbindt certificeringsvervaldatumdetectie met herbeoordeling, verlenging en roosterupdates — zonder handmatige tussenkomst.</p>
+
+            <!-- Before / After -->
+            <div class="comparison reveal">
+                <div class="comparison__card comparison__card--before">
+                    <h3 data-nl="Zonder Tra<span class=&quot;text-red&quot;>QQ</span>r" data-en="Without Tra<span class=&quot;text-red&quot;>QQ</span>r">Zonder Tra<span class="text-red">QQ</span>r</h3>
+                    <ul>
+                        <li><span class="comparison__x">&#10005;</span> <span data-nl="Certificeringen bijgehouden in verspreide spreadsheets" data-en="Certifications tracked in scattered spreadsheets">Certificeringen bijgehouden in verspreide spreadsheets</span></li>
+                        <li><span class="comparison__x">&#10005;</span> <span data-nl="Vervaldatums gemist tot een audit de hiaten onthult" data-en="Expiry dates missed until audit reveals gaps">Vervaldatums gemist tot een audit de hiaten onthult</span></li>
+                        <li><span class="comparison__x">&#10005;</span> <span data-nl="Handmatig bellen om gekwalificeerde vervangers te vinden" data-en="Manual phone calls to find qualified replacements">Handmatig bellen om gekwalificeerde vervangers te vinden</span></li>
+                        <li><span class="comparison__x">&#10005;</span> <span data-nl="Ongekwalificeerd personeel per ongeluk ingepland" data-en="Unqualified staff accidentally scheduled">Ongekwalificeerd personeel per ongeluk ingepland</span></li>
+                        <li><span class="comparison__x">&#10005;</span> <span data-nl="Compliance-overtredingen en mogelijke boetes" data-en="Compliance violations and potential fines">Compliance-overtredingen en mogelijke boetes</span></li>
+                    </ul>
+                </div>
+                <div class="comparison__card comparison__card--after">
+                    <h3 data-nl="Met Tra<span class=&quot;accent&quot;>QQ</span>r" data-en="With Tra<span class=&quot;accent&quot;>QQ</span>r">Met Tra<span class="accent">QQ</span>r</h3>
+                    <ul>
+                        <li><span class="comparison__check">&#10003;</span> <span data-nl="Alle certificeringen gecentraliseerd met realtime status" data-en="All certifications centralized with real-time status">Alle certificeringen gecentraliseerd met realtime status</span></li>
+                        <li><span class="comparison__check">&#10003;</span> <span data-nl="Automatische meldingen 30, 60, 90 dagen voor vervaldatum" data-en="Automatic alerts 30, 60, 90 days before expiry">Automatische meldingen 30, 60, 90 dagen voor vervaldatum</span></li>
+                        <li><span class="comparison__check">&#10003;</span> <span data-nl="Directe kwalificatie-gematchte vervangingssuggesties" data-en="Instant qualification-matched replacement suggestions">Directe kwalificatie-gematchte vervangingssuggesties</span></li>
+                        <li><span class="comparison__check">&#10003;</span> <span data-nl="Alleen gecertificeerd personeel in het rooster" data-en="Only certified personnel in the schedule">Alleen gecertificeerd personeel in het rooster</span></li>
+                        <li><span class="comparison__check">&#10003;</span> <span data-nl="Audit-ready compliance te allen tijde" data-en="Audit-ready compliance at all times">Audit-ready compliance te allen tijde</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Steps -->
+            <div class="loop-steps">
+                <div class="loop-step reveal">
+                    <div class="loop-step__icon loop-step__icon--warning">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </div>
+                    <span class="loop-step__number" data-nl="Stap 1" data-en="Step 1">Stap 1</span>
+                    <h4 data-nl="Vervaldatum gedetecteerd" data-en="Expiry Detected">Vervaldatum gedetecteerd</h4>
+                    <p data-nl="Certificering nadert vervaldatum. Automatische melding verstuurd." data-en="Certification approaching expiry date. Automatic alert triggered.">Certificering nadert vervaldatum. Automatische melding verstuurd.</p>
+                </div>
+                <div class="loop-step__arrow reveal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="loop-step reveal">
+                    <div class="loop-step__icon loop-step__icon--sky">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect x="8" y="2" width="8" height="4" rx="1"/><path d="m9 14 2 2 4-4"/></svg>
+                    </div>
+                    <span class="loop-step__number" data-nl="Stap 2" data-en="Step 2">Stap 2</span>
+                    <h4 data-nl="Assessment geactiveerd" data-en="Assessment Triggered">Assessment geactiveerd</h4>
+                    <p data-nl="Competentieherbeoordeling automatisch ingepland en toegewezen." data-en="Competency reassessment automatically scheduled and assigned.">Competentieherbeoordeling automatisch ingepland en toegewezen.</p>
+                </div>
+                <div class="loop-step__arrow reveal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="loop-step reveal">
+                    <div class="loop-step__icon loop-step__icon--green">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-2.75 6.07 6.07 0 0 1 10.74 0 4 4 0 0 1 4.78 2.75"/><path d="m9 12 2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <span class="loop-step__number" data-nl="Stap 3" data-en="Step 3">Stap 3</span>
+                    <h4 data-nl="Certificering vernieuwd" data-en="Certification Renewed">Certificering vernieuwd</h4>
+                    <p data-nl="Assessment behaald. Certificeringsstatus direct bijgewerkt." data-en="Assessment passed. Certification status updated instantly.">Assessment behaald. Certificeringsstatus direct bijgewerkt.</p>
+                </div>
+                <div class="loop-step__arrow reveal">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                </div>
+                <div class="loop-step reveal">
+                    <div class="loop-step__icon loop-step__icon--violet">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4"/><path d="M8 2v4"/><path d="M3 10h18"/><path d="m9 16 2 2 4-4"/></svg>
+                    </div>
+                    <span class="loop-step__number" data-nl="Stap 4" data-en="Step 4">Stap 4</span>
+                    <h4 data-nl="Rooster bijgewerkt" data-en="Schedule Updated">Rooster bijgewerkt</h4>
+                    <p data-nl="Personeelsplanning weerspiegelt nieuwe kwalificatiestatus. Altijd compliant." data-en="Crew planning reflects new qualification status. Always compliant.">Personeelsplanning weerspiegelt nieuwe kwalificatiestatus. Altijd compliant.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries -->
+    <section class="section industries" id="industries">
+        <div class="container">
+            <span class="section__label reveal" data-nl="Sectoren" data-en="Industries">Sectoren</span>
+            <h2 class="section__title reveal" data-nl="Gebouwd voor de meest veeleisende sectoren" data-en="Built for the most demanding sectors">Gebouwd voor de meest veeleisende sectoren</h2>
+            <p class="section__description reveal" data-nl="Van offshore-platforms tot chemiefabrieken, TraQQr is bewezen in sectoren waar certificeringscompliance geen optie is — het is overleven." data-en="From offshore platforms to chemical plants, TraQQr is proven in industries where certification compliance isn't optional — it's survival.">Van offshore-platforms tot chemiefabrieken, TraQQr is bewezen in sectoren waar certificeringscompliance geen optie is — het is overleven.</p>
+
+            <div class="industry-tabs reveal">
+                <button class="industry-tab active" data-tab="offshore">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="5" r="3"/><line x1="12" y1="22" x2="12" y2="8"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/></svg>
+                    <span data-nl="Offshore" data-en="Offshore">Offshore</span>
+                </button>
+                <button class="industry-tab" data-tab="petrochem">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/></svg>
+                    <span data-nl="Petrochemie" data-en="Petrochemical">Petrochemie</span>
+                </button>
+                <button class="industry-tab" data-tab="wind">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg>
+                    <span data-nl="Offshore Wind" data-en="Offshore Wind">Offshore Wind</span>
+                </button>
+                <button class="industry-tab" data-tab="crewing">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span data-nl="Crewing" data-en="Crewing">Crewing</span>
+                </button>
+                <button class="industry-tab" data-tab="oilfield">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+                    <span data-nl="Oilfield" data-en="Oilfield">Oilfield</span>
+                </button>
+            </div>
+
+            <div class="industry-panels">
+                <div class="industry-panel active" id="panel-offshore">
+                    <div class="industry-panel__content">
+                        <h3 data-nl="Offshore olie &amp; gas" data-en="Offshore Oil &amp; Gas">Offshore olie &amp; gas</h3>
+                        <p data-nl="Beheer BOSIET, HUET, STCW, IWCF en 10+ certificeringen per crewlid over jack-ups, FPSO's en platforms wereldwijd." data-en="Manage BOSIET, HUET, STCW, IWCF, and 10+ certifications per crew member across jack-ups, FPSO's, and platforms worldwide.">Beheer BOSIET, HUET, STCW, IWCF en 10+ certificeringen per crewlid over jack-ups, FPSO's en platforms wereldwijd.</p>
+                        <div class="industry-panel__pain">
+                            <strong data-nl="Het pijnpunt:" data-en="The pain point:">Het pijnpunt:</strong>
+                            <em data-nl="&quot;Een ziek crewlid om 5 uur 's ochtends op een jack-up — wie heeft de juiste BOSIET, HUET en rolspecifieke certificeringen om hem te vervangen?&quot;" data-en="&quot;A sick crew member at 5 AM on a jack-up — who has the right BOSIET, HUET, and role-specific certifications to replace them?&quot;">"Een ziek crewlid om 5 uur 's ochtends op een jack-up — wie heeft de juiste BOSIET, HUET en rolspecifieke certificeringen om hem te vervangen?"</em>
+                        </div>
+                        <a href="industries.html#offshore" class="btn btn--secondary btn--sm" data-nl="Meer informatie" data-en="Learn more">Meer informatie</a>
+                    </div>
+                    <div class="industry-panel__meta">
+                        <div class="industry-panel__certs">
+                            <h4 data-nl="Gedekte certificeringen" data-en="Certifications Covered">Gedekte certificeringen</h4>
+                            <div class="tag-list">
+                                <span class="tag">OPITO BOSIET</span>
+                                <span class="tag">STCW</span>
+                                <span class="tag">HUET</span>
+                                <span class="tag">H2S</span>
+                                <span class="tag">IWCF</span>
+                                <span class="tag">DP</span>
+                            </div>
+                        </div>
+                        <div class="industry-panel__ref">
+                            <h4 data-nl="Referentie" data-en="Reference">Referentie</h4>
+                            <p class="accent-text" data-nl="Seafox — 12 jack-up units wereldwijd" data-en="Seafox — 12 jack-up units worldwide">Seafox — 12 jack-up units wereldwijd</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="industry-panel" id="panel-petrochem">
+                    <div class="industry-panel__content">
+                        <h3 data-nl="Petrochemie &amp; chemie" data-en="Petrochemical &amp; Chemical">Petrochemie &amp; chemie</h3>
+                        <p data-nl="VCA/SCC-verificatie voor duizenden aannemers tijdens turnarounds. Toegangscontrole met realtime certificeringscontroles." data-en="Handle VCA/SCC verification for thousands of contractors during turnarounds. Site access control with real-time certification checks.">VCA/SCC-verificatie voor duizenden aannemers tijdens turnarounds. Toegangscontrole met realtime certificeringscontroles.</p>
+                        <div class="industry-panel__pain">
+                            <strong data-nl="Het pijnpunt:" data-en="The pain point:">Het pijnpunt:</strong>
+                            <em data-nl="&quot;Tijdens turnarounds gaat het aantal aannemers van honderden naar duizenden — allemaal met geverifieerde certificeringen.&quot;" data-en="&quot;During turnarounds, contractor headcount goes from hundreds to thousands — all needing verified certifications.&quot;">"Tijdens turnarounds gaat het aantal aannemers van honderden naar duizenden — allemaal met geverifieerde certificeringen."</em>
+                        </div>
+                        <a href="industries.html#petrochemical" class="btn btn--secondary btn--sm" data-nl="Meer informatie" data-en="Learn more">Meer informatie</a>
+                    </div>
+                    <div class="industry-panel__meta">
+                        <div class="industry-panel__certs">
+                            <h4 data-nl="Gedekte certificeringen" data-en="Certifications Covered">Gedekte certificeringen</h4>
+                            <div class="tag-list">
+                                <span class="tag">VCA/SCC</span>
+                                <span class="tag">BRZO/SEVESO</span>
+                                <span class="tag">ATEX</span>
+                                <span class="tag" data-nl="Besloten ruimten" data-en="Confined Space">Besloten ruimten</span>
+                                <span class="tag" data-nl="Werken op hoogte" data-en="Working at Height">Werken op hoogte</span>
+                            </div>
+                        </div>
+                        <div class="industry-panel__ref">
+                            <h4 data-nl="Referentie" data-en="Reference">Referentie</h4>
+                            <p class="accent-text" data-nl="INEOS — een van 's werelds grootste chemieconcerns" data-en="INEOS — one of the world's largest chemical companies">INEOS — een van 's werelds grootste chemieconcerns</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="industry-panel" id="panel-wind">
+                    <div class="industry-panel__content">
+                        <h3 data-nl="Offshore wind &amp; hernieuwbare energie" data-en="Offshore Wind &amp; Renewables">Offshore wind &amp; hernieuwbare energie</h3>
+                        <p data-nl="Volg GWO-modules, OPITO-windextensies en STCW voor WTIV-crews, turbinetechnici en kabellegteams." data-en="Track GWO modules, OPITO wind extensions, and STCW for WTIV crews, turbine technicians, and cable laying teams.">Volg GWO-modules, OPITO-windextensies en STCW voor WTIV-crews, turbinetechnici en kabellegteams.</p>
+                        <div class="industry-panel__pain">
+                            <strong data-nl="Het pijnpunt:" data-en="The pain point:">Het pijnpunt:</strong>
+                            <em data-nl="&quot;Snelle opschaling van gecertificeerd personeel in de snelstgroeiende energiesector.&quot;" data-en="&quot;Rapid scaling of certified personnel in the fastest-growing energy sector.&quot;">"Snelle opschaling van gecertificeerd personeel in de snelstgroeiende energiesector."</em>
+                        </div>
+                        <a href="industries.html#wind" class="btn btn--secondary btn--sm" data-nl="Meer informatie" data-en="Learn more">Meer informatie</a>
+                    </div>
+                    <div class="industry-panel__meta">
+                        <div class="industry-panel__certs">
+                            <h4 data-nl="Gedekte certificeringen" data-en="Certifications Covered">Gedekte certificeringen</h4>
+                            <div class="tag-list">
+                                <span class="tag" data-nl="GWO (6 modules)" data-en="GWO (6 modules)">GWO (6 modules)</span>
+                                <span class="tag">OPITO Wind</span>
+                                <span class="tag">STCW</span>
+                                <span class="tag" data-nl="EHBO" data-en="First Aid">EHBO</span>
+                            </div>
+                        </div>
+                        <div class="industry-panel__ref">
+                            <h4 data-nl="Referentie" data-en="Reference">Referentie</h4>
+                            <p class="accent-text" data-nl="De snelstgroeiende offshore energiemarkt" data-en="The fastest-growing offshore energy market">De snelstgroeiende offshore energiemarkt</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="industry-panel" id="panel-crewing">
+                    <div class="industry-panel__content">
+                        <h3 data-nl="Crewing- &amp; uitzendbureaus" data-en="Crewing &amp; Staffing Agencies">Crewing- &amp; uitzendbureaus</h3>
+                        <p data-nl="Beheer certificeringen voor honderden uitgezette medewerkers bij tientallen opdrachtgevers. Eén verlopen certificaat = verloren omzet." data-en="Manage certifications for hundreds of deployed workers across dozens of client operators. One expired certificate = lost revenue.">Beheer certificeringen voor honderden uitgezette medewerkers bij tientallen opdrachtgevers. Eén verlopen certificaat = verloren omzet.</p>
+                        <div class="industry-panel__pain">
+                            <strong data-nl="Het pijnpunt:" data-en="The pain point:">Het pijnpunt:</strong>
+                            <em data-nl="&quot;Eén verlopen BOSIET = medewerker niet inzetbaar = direct omzetverlies.&quot;" data-en="&quot;One expired BOSIET = worker not deployable = immediate revenue loss.&quot;">"Eén verlopen BOSIET = medewerker niet inzetbaar = direct omzetverlies."</em>
+                        </div>
+                        <a href="industries.html#crewing" class="btn btn--secondary btn--sm" data-nl="Meer informatie" data-en="Learn more">Meer informatie</a>
+                    </div>
+                    <div class="industry-panel__meta">
+                        <div class="industry-panel__certs">
+                            <h4 data-nl="Gedekte certificeringen" data-en="Certifications Covered">Gedekte certificeringen</h4>
+                            <div class="tag-list">
+                                <span class="tag" data-nl="Multi-standaard" data-en="Multi-standard">Multi-standaard</span>
+                                <span class="tag" data-nl="Klantspecifiek" data-en="Client-specific">Klantspecifiek</span>
+                                <span class="tag" data-nl="Grensoverschrijdend" data-en="Cross-jurisdictional">Grensoverschrijdend</span>
+                            </div>
+                        </div>
+                        <div class="industry-panel__ref">
+                            <h4 data-nl="Referentie" data-en="Reference">Referentie</h4>
+                            <p class="accent-text" data-nl="Multipliereffect — één contract bereikt tientallen operators" data-en="Multiplier effect — one contract reaches dozens of operators">Multipliereffect — één contract bereikt tientallen operators</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="industry-panel" id="panel-oilfield">
+                    <div class="industry-panel__content">
+                        <h3 data-nl="Oilfield services" data-en="Oilfield Services">Oilfield services</h3>
+                        <p data-nl="Mobiele veldmedewerkers met uitgebreide certificeringsvereisten over meerdere locaties en landen." data-en="Mobile field workers with extensive certification requirements across multiple locations and countries.">Mobiele veldmedewerkers met uitgebreide certificeringsvereisten over meerdere locaties en landen.</p>
+                        <div class="industry-panel__pain">
+                            <strong data-nl="Het pijnpunt:" data-en="The pain point:">Het pijnpunt:</strong>
+                            <em data-nl="&quot;Veldmedewerkers in meerdere landen, elk met andere certificeringsvereisten.&quot;" data-en="&quot;Field workers across multiple countries, each with different certification requirements.&quot;">"Veldmedewerkers in meerdere landen, elk met andere certificeringsvereisten."</em>
+                        </div>
+                        <a href="industries.html#oilfield" class="btn btn--secondary btn--sm" data-nl="Meer informatie" data-en="Learn more">Meer informatie</a>
+                    </div>
+                    <div class="industry-panel__meta">
+                        <div class="industry-panel__certs">
+                            <h4 data-nl="Gedekte certificeringen" data-en="Certifications Covered">Gedekte certificeringen</h4>
+                            <div class="tag-list">
+                                <span class="tag">IWCF</span>
+                                <span class="tag">IRATA</span>
+                                <span class="tag">NDT</span>
+                                <span class="tag" data-nl="Lassen" data-en="Welding">Lassen</span>
+                                <span class="tag">VCA</span>
+                            </div>
+                        </div>
+                        <div class="industry-panel__ref">
+                            <h4 data-nl="Referentie" data-en="Reference">Referentie</h4>
+                            <p class="accent-text" data-nl="Multi-locatie, multinationale operaties" data-en="Multi-site, multi-country operations">Multi-locatie, multinationale operaties</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Stats -->
+    <section class="section market-stats">
+        <div class="container">
+            <span class="section__label reveal" data-nl="Waarom nu" data-en="Why Now">Waarom nu</span>
+            <h2 class="section__title reveal" data-nl="Het compliance-landschap verandert" data-en="The compliance landscape is shifting">Het compliance-landschap verandert</h2>
+            <p class="section__description reveal" data-nl="Regeldruk neemt toe. CSRD, NIS2, BRZO/SEVESO, OPITO — organisaties die nog op spreadsheets vertrouwen lopen achter." data-en="Regulatory pressure is increasing. CSRD, NIS2, BRZO/SEVESO, OPITO — organizations that still rely on spreadsheets are falling behind.">Regeldruk neemt toe. CSRD, NIS2, BRZO/SEVESO, OPITO — organisaties die nog op spreadsheets vertrouwen lopen achter.</p>
+            <div class="stats-grid">
+                <div class="stat-card reveal">
+                    <svg class="stat-card__icon stat-card__icon--warning" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 21H3"/><path d="M3 7v14"/><path d="M21 10V3H3v4"/><rect x="7" y="14" width="4" height="7"/><rect x="13" y="10" width="4" height="11"/></svg>
+                    <span class="stat-card__value stat-card__value--warning">47%</span>
+                    <span class="stat-card__label" data-nl="van de bedrijven beheert certificeringen nog in spreadsheets" data-en="of companies still manage certifications in spreadsheets">van de bedrijven beheert certificeringen nog in spreadsheets</span>
+                </div>
+                <div class="stat-card reveal">
+                    <svg class="stat-card__icon stat-card__icon--green" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+                    <span class="stat-card__value stat-card__value--green">$9.9B</span>
+                    <span class="stat-card__label" data-nl="verwachte marktomvang certificeringsbeheer in 2032" data-en="projected certification management market by 2032">verwachte marktomvang certificeringsbeheer in 2032</span>
+                </div>
+                <div class="stat-card reveal">
+                    <svg class="stat-card__icon stat-card__icon--sky" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2a4 4 0 0 1 4 4c0 1.95-1.4 3.58-3.25 3.93L12 22l-.75-12.07A4.001 4.001 0 0 1 12 2z"/><circle cx="12" cy="6" r="1"/></svg>
+                    <span class="stat-card__value stat-card__value--sky">78%</span>
+                    <span class="stat-card__label" data-nl="van de organisaties gebruikt nu AI voor ten minste één HR-functie" data-en="of organizations now use AI for at least one HR function">van de organisaties gebruikt nu AI voor ten minste één HR-functie</span>
+                </div>
+                <div class="stat-card reveal">
+                    <svg class="stat-card__icon stat-card__icon--violet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    <span class="stat-card__value stat-card__value--violet">59%</span>
+                    <span class="stat-card__label" data-nl="van de wereldwijde beroepsbevolking heeft herscholing nodig tegen 2030 (WEF)" data-en="of the global workforce needs reskilling by 2030 (WEF)">van de wereldwijde beroepsbevolking heeft herscholing nodig tegen 2030 (WEF)</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trusted By -->
+    <section class="section testimonials">
+        <div class="container">
+            <div class="testimonials__grid">
+                <div class="testimonial-card reveal">
+                    <div class="trusted-card">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="trusted-card__icon"><path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l7 3.5v7.64l-7 3.5-7-3.5V7.68l7-3.5z"/></svg>
+                        <h3>Seafox</h3>
+                        <p data-nl="Offshore jack-up operator met 12 units wereldwijd, opererend vanuit IJmuiden. Certificeringsbeheer voor crew over wereldwijde operaties." data-en="Offshore jack-up operator with 12 units worldwide, operating from IJmuiden. Managing certifications for crew across global operations.">Offshore jack-up operator met 12 units wereldwijd, opererend vanuit IJmuiden. Certificeringsbeheer voor crew over wereldwijde operaties.</p>
+                    </div>
+                </div>
+                <div class="testimonial-card reveal">
+                    <div class="trusted-card">
+                        <svg viewBox="0 0 24 24" fill="currentColor" class="trusted-card__icon"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/><path d="M12 6v6l4.5 2.7.75-1.23L13 11.2V6h-2z"/></svg>
+                        <h3>INEOS</h3>
+                        <p data-nl="Een van 's werelds grootste chemieconcerns. Certificeringscompliance voor duizenden aannemers op petrochemische locaties." data-en="One of the world's largest chemical companies. Certification compliance for thousands of contractors across petrochemical sites.">Een van 's werelds grootste chemieconcerns. Certificeringscompliance voor duizenden aannemers op petrochemische locaties.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta">
+        <div class="cta__glow"></div>
+        <div class="container">
+            <div class="cta__content reveal">
+                <h2 data-nl="Klaar om controle te nemen over uw certificeringen?" data-en="Ready to take control of your certifications?">Klaar om controle te nemen over uw certificeringen?</h2>
+                <p data-nl="Sluit u aan bij Seafox, INEOS en andere marktleiders die TraQQr vertrouwen om hun personeel gecertificeerd, compliant en inzetbaar te houden." data-en="Join Seafox, INEOS, and other industry leaders who trust TraQQr to keep their workforce certified, compliant, and deployable.">Sluit u aan bij Seafox, INEOS en andere marktleiders die TraQQr vertrouwen om hun personeel gecertificeerd, compliant en inzetbaar te houden.</p>
+                <div class="cta__buttons">
+                    <a href="contact.html" class="btn btn--primary btn--lg" data-nl="Plan een demo" data-en="Book a Demo">
+                        Plan een demo
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn__icon"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                    <a href="features.html" class="btn btn--ghost btn--lg" data-nl="Ontdek functionaliteiten" data-en="Explore Features">Ontdek functionaliteiten</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div class="footer__brand">
+                    <a href="/" class="nav__logo">
+                        <img src="logo.svg" alt="TraQQr" class="nav__logo-img">
+                        <span class="nav__logo-text">Tra<span class="accent">QQ</span>r</span>
+                    </a>
+                    <p class="footer__description" data-nl="All-in-one platform voor certificeringslevenscyclusbeheer, competentiepaden, assessments en kwalificatiegebaseerde personeelsplanning." data-en="All-in-one platform for certification lifecycle management, competency paths, assessments, and qualification-based crew planning.">All-in-one platform voor certificeringslevenscyclusbeheer, competentiepaden, assessments en kwalificatiegebaseerde personeelsplanning.</p>
+                    <div class="footer__contact-links">
+                        <a href="https://www.google.com/maps/dir/?api=1&amp;destination=Loosterweg+4b+2215TL+Voorhout" target="_blank" rel="noopener noreferrer">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            Loosterweg 4b, 2215 TL Voorhout
+                        </a>
+                        <a href="tel:+31713020160">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            +31 71 30 20 160
+                        </a>
+                        <a href="mailto:info@traqqr.nl">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            info@traqqr.nl
+                        </a>
+                    </div>
+                </div>
+                <div class="footer__links">
+                    <div>
+                        <h4 data-nl="Product" data-en="Product">Product</h4>
+                        <a href="features.html#certifications" data-nl="Certificeringsbeheer" data-en="Certification Management">Certificeringsbeheer</a>
+                        <a href="features.html#competencies" data-nl="Competentiepaden" data-en="Competency Paths">Competentiepaden</a>
+                        <a href="features.html#assessments" data-nl="Assessments &amp; Reviews" data-en="Assessments &amp; Reviews">Assessments &amp; Reviews</a>
+                        <a href="features.html#planning" data-nl="Personeelsplanning" data-en="Crew Planning">Personeelsplanning</a>
+                    </div>
+                    <div>
+                        <h4 data-nl="Sectoren" data-en="Industries">Sectoren</h4>
+                        <a href="industries.html#offshore" data-nl="Offshore olie &amp; gas" data-en="Offshore Oil &amp; Gas">Offshore olie &amp; gas</a>
+                        <a href="industries.html#petrochemical" data-nl="Petrochemie" data-en="Petrochemical">Petrochemie</a>
+                        <a href="industries.html#wind" data-nl="Offshore wind" data-en="Offshore Wind">Offshore wind</a>
+                        <a href="industries.html#crewing" data-nl="Crewingbureaus" data-en="Crewing Agencies">Crewingbureaus</a>
+                        <a href="industries.html#oilfield" data-nl="Oilfield services" data-en="Oilfield Services">Oilfield services</a>
+                    </div>
+                    <div>
+                        <h4 data-nl="Bedrijf" data-en="Company">Bedrijf</h4>
+                        <a href="about.html" data-nl="Over ons" data-en="About">Over ons</a>
+                        <a href="contact.html" data-nl="Contact" data-en="Contact">Contact</a>
+                        <a href="contact.html" data-nl="Plan een demo" data-en="Book a Demo">Plan een demo</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p data-nl="&copy; 2026 De Bollenloods — TraQQr. Alle rechten voorbehouden." data-en="&copy; 2026 De Bollenloods — TraQQr. All rights reserved.">&copy; 2026 De Bollenloods — TraQQr. Alle rechten voorbehouden.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
