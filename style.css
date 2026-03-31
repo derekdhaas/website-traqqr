@@ -839,6 +839,11 @@ ul { list-style: none; }
     border-radius: var(--radius);
     width: 100%;
     max-width: 260px;
+    flex: 1;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .loop-step__icon {
