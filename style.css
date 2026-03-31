@@ -791,22 +791,16 @@ ul { list-style: none; }
     margin-bottom: 36px;
 }
 
-.social-proof__logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.5);
-    transition: color var(--transition);
+.social-proof__logo-img {
+    height: 30px;
+    width: auto;
+    filter: brightness(0) invert(1);
+    opacity: 0.4;
+    transition: opacity var(--transition);
 }
 
-.social-proof__logo:hover { color: rgba(255, 255, 255, 0.8); }
-
-.social-proof__logo svg {
-    width: 28px;
-    height: 28px;
-    color: rgba(13, 177, 75, 0.5);
+.social-proof__logo-img:hover {
+    opacity: 0.65;
 }
 
 .social-proof__metrics {
