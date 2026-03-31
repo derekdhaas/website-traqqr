@@ -16,7 +16,7 @@
     --color-bg-elevated: #f7f8fa;
     --color-bg-card: #ffffff;
     --color-bg-card-hover: #f9fafb;
-    --color-bg-dark: #0f1f1d;
+    --color-bg-dark: #111111;
     --color-accent: #0a8f3e;
     --color-accent-dark: #077a33;
     --color-accent-light: #e8f5ed;
@@ -99,14 +99,12 @@ ul { list-style: none; }
     z-index: 1000;
     padding: 14px 0;
     transition: var(--transition);
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    background: var(--color-bg-dark);
 }
 
 .nav--scrolled {
     padding: 10px 0;
-    box-shadow: 0 1px 0 var(--color-border);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.08);
 }
 
 .nav__inner {
@@ -125,7 +123,7 @@ ul { list-style: none; }
     font-weight: 600;
     font-size: 1.15rem;
     z-index: 1001;
-    color: var(--color-text);
+    color: white;
 }
 
 .nav__logo-img {
@@ -146,13 +144,13 @@ ul { list-style: none; }
 .nav__links a {
     font-size: 0.88rem;
     font-weight: 500;
-    color: var(--color-text-muted);
+    color: rgba(255, 255, 255, 0.6);
     transition: color var(--transition);
     position: relative;
 }
 
 .nav__links a:hover {
-    color: var(--color-text);
+    color: white;
 }
 
 .nav__links a::after {
@@ -179,8 +177,8 @@ ul { list-style: none; }
 /* Language toggle */
 .lang-toggle {
     background: transparent;
-    border: 1px solid var(--color-border);
-    color: var(--color-text-muted);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.6);
     padding: 5px 12px;
     border-radius: 4px;
     font-family: var(--font);
@@ -217,7 +215,7 @@ ul { list-style: none; }
     display: block;
     width: 22px;
     height: 2px;
-    background: var(--color-text);
+    background: white;
     transition: var(--transition);
     border-radius: 1px;
 }
