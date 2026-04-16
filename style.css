@@ -1936,7 +1936,7 @@ ul { list-style: none; }
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 35%;
+    object-position: top;
     display: block;
 }
 
@@ -1950,6 +1950,7 @@ ul { list-style: none; }
     width: 100%;
     aspect-ratio: 16 / 9;
     object-fit: cover;
+    object-position: top;
     display: block;
 }
 
